@@ -132,7 +132,7 @@ const HeroSection = React.forwardRef(
         </div>
 
         {/* Right Side: Placeholder visual */}
-        <div className="relative w-full min-h-[50vh] md:w-[50%] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#D4A574] via-[#C4926A] to-[#A87850]">
+        <div         className="relative w-full min-h-[50vh] md:w-[50%] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#E8D0C8] via-[#DDC0B5] to-[#D4B0A5]">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23FFFFFF\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5" />
 
@@ -142,7 +142,7 @@ const HeroSection = React.forwardRef(
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
             className="relative z-10 w-full h-full flex items-center justify-center"
           >
-            <svg viewBox="0 0 400 400" className="w-72 h-72 md:w-96 md:h-96 text-white/15">
+            <svg viewBox="0 0 400 400" className="w-72 h-72 md:w-96 md:h-96 text-white/30">
               <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" strokeWidth="1" />
               <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" strokeWidth="0.5" />
               <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" strokeWidth="0.3" />

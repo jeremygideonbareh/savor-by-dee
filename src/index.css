@@ -7,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: 30 20% 95%;
-    --foreground: 25 40% 14%;
+    --background: 35 20% 97%;
+    --foreground: 25 20% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 25 40% 14%;
+    --card-foreground: 25 20% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 25 40% 14%;
-    --primary: 18 55% 52%;
+    --popover-foreground: 25 20% 20%;
+    --primary: 18 45% 72%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 40% 84%;
-    --secondary-foreground: 25 40% 14%;
-    --muted: 25 10% 50%;
-    --muted-foreground: 25 12% 40%;
-    --accent: 130 20% 46%;
-    --accent-foreground: 25 40% 14%;
+    --secondary: 30 20% 90%;
+    --secondary-foreground: 25 20% 20%;
+    --muted: 25 6% 62%;
+    --muted-foreground: 25 8% 50%;
+    --accent: 130 25% 65%;
+    --accent-foreground: 25 20% 20%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 25 20% 88%;
-    --input: 25 20% 88%;
-    --ring: 18 55% 52%;
+    --border: 25 10% 90%;
+    --input: 25 10% 90%;
+    --ring: 18 45% 72%;
     --radius: 0.75rem;
 
-    --main: #B86C4A;
-    --overlay: rgba(0, 0, 0, 0.5);
-    --bg: #F7F4F0;
+    --main: #D4A89A;
+    --overlay: rgba(0, 0, 0, 0.25);
+    --bg: #FBF9F6;
     --bw: #ffffff;
     --blank: #000000;
-    --text: #2C1810;
+    --text: #3D2C22;
     --mtext: #ffffff;
-    --ring-offset: #F7F4F0;
+    --ring-offset: #FBF9F6;
     --box-shadow-x: 4px;
     --box-shadow-y: 4px;
     --reverse-box-shadow-x: -4px;
