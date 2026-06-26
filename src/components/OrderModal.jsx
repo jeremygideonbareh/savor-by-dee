@@ -126,7 +126,7 @@ export default function OrderModal({ open, onClose }) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 50 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="w-full sm:max-w-2xl bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92dvh] sm:max-h-[90vh] flex flex-col"
+            className="w-full sm:max-w-2xl bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92dvh] sm:max-h-[90vh] flex flex-col pb-[env(safe-area-inset-bottom,0px)]"
           >
             <div className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-primary/10 shrink-0">
               <div className="flex items-center gap-2">

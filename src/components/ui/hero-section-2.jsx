@@ -20,7 +20,7 @@ function InfoIcon({ type }) {
 }
 
 const HeroSection = React.forwardRef(
-  ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, contactInfo, onOrder, ...props }, ref) => {
+  ({ className, logo, slogan, title, subtitle, callToAction, contactInfo, onOrder, ...props }, ref) => {
     const containerVariants = {
       hidden: { opacity: 0 },
       visible: {
@@ -48,7 +48,7 @@ const HeroSection = React.forwardRef(
       <motion.section
         ref={ref}
         className={cn(
-          'relative flex w-full flex-col overflow-hidden bg-background text-foreground md:flex-row min-h-screen',
+          'relative flex w-full flex-col overflow-hidden bg-background text-foreground md:flex-row md:min-h-dvh',
           className,
         )}
         initial="hidden"
@@ -57,7 +57,7 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left Side: Content */}
-        <div className="flex w-full flex-col justify-between p-8 md:w-[50%] md:p-12 lg:p-16">
+        <div className="flex w-full flex-col justify-between p-6 md:p-12 lg:p-16 md:w-[50%]">
           <div>
             <motion.header className="mb-12" variants={itemVariants}>
               {logo && (
@@ -132,7 +132,7 @@ const HeroSection = React.forwardRef(
         </div>
 
         {/* Right Side: Light ambient placeholder */}
-        <div className="relative w-full min-h-[50vh] md:w-[50%] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FDF8F5] via-[#F5F0EB] to-[#F0EAE4]">
+        <div className="relative w-full min-h-[40vh] md:w-[50%] md:min-h-dvh flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FDF8F5] via-[#F5F0EB] to-[#F0EAE4]">
           <div className="absolute inset-0 opacity-[0.12]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23D4A89A\' fill-opacity=\'0.5\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
 
           <motion.div

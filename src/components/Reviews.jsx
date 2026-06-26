@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
+import { SectionEyebrow, CharReveal } from './RevealText'
 
 const reviews = [
   {
@@ -58,7 +58,7 @@ export default function Reviews() {
           className="text-center mb-10 md:mb-16"
         >
           <SectionEyebrow>Testimonials</SectionEyebrow>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground break-words whitespace-nowrap">
+          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground">
             <CharReveal>What </CharReveal>
             <span className="text-primary italic"><CharReveal delay={0.3}>everyone</CharReveal></span>
             <CharReveal delay={0.5}> says</CharReveal>

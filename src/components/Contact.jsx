@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Clock, MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
+import { SectionEyebrow, CharReveal } from './RevealText'
 
 const contactInfo = [
   {
@@ -39,7 +39,7 @@ export default function Contact({ onOrder }) {
           className="text-center mb-10 md:mb-16"
         >
           <SectionEyebrow>Get in Touch</SectionEyebrow>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground break-words whitespace-nowrap">
+          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground">
             <CharReveal>Find us in </CharReveal>
             <span className="text-primary italic"><CharReveal delay={0.3}>Laban</CharReveal></span>
           </h2>
