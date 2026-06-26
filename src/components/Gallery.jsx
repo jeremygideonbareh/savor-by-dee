@@ -2,52 +2,36 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { SectionEyebrow, CharReveal } from './RevealText'
-import FloatingSprinkles from './FloatingSprinkles'
-import ArtPieceCircle from './ArtPieceCircle'
-import ArtPieceLines from './ArtPieceLines'
-import ArtPieceMonogram from './ArtPieceMonogram'
-import ArtPieceSwatch from './ArtPieceSwatch'
 import { GALLERY_IMAGES, IMAGES } from '../data/images'
-
-const ART_COMPONENTS = {
-  ArtPieceCircle,
-  ArtPieceLines,
-  ArtPieceMonogram,
-  ArtPieceSwatch,
-}
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null)
 
   const galleryItems = GALLERY_IMAGES.map((img) => ({
     ...img,
-    src: img.type === 'photo' ? IMAGES[img.key] : null,
+    src: IMAGES[img.key],
   }))
 
-  const photoItems = galleryItems.filter((img) => img.type === 'photo')
-  const currentIndex = selected !== null ? photoItems.findIndex((img) => img.src === selected.src) : -1
+  const currentIndex = selected !== null ? galleryItems.findIndex((img) => img.src === selected.src) : -1
 
   const goNext = () => {
-    const next = (currentIndex + 1) % photoItems.length
-    setSelected(photoItems[next])
+    const next = (currentIndex + 1) % galleryItems.length
+    setSelected(galleryItems[next])
   }
 
   const goPrev = () => {
-    const prev = (currentIndex - 1 + photoItems.length) % photoItems.length
-    setSelected(photoItems[prev])
+    const prev = (currentIndex - 1 + galleryItems.length) % galleryItems.length
+    setSelected(galleryItems[prev])
   }
 
   return (
-    <section id="gallery" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8E0]/30 via-[#F0EDE6]/20 to-[#EDE8E0]/30" />
-      <FloatingSprinkles count={8} />
-
-      <div className="mx-auto max-w-6xl relative z-10">
+    <section id="gallery" className="relative py-20 md:py-28 lg:py-36 px-0 overflow-hidden">
+      <div className="mx-auto max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 px-4 md:px-6"
         >
           <SectionEyebrow>Our Gallery</SectionEyebrow>
           <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground break-words whitespace-nowrap">
@@ -59,53 +43,30 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 md:gap-2">
           {galleryItems.map((item, i) => (
-            <motion.div
-              key={item.type === 'art' ? `art-${i}` : item.key}
+            <motion.button
+              key={item.key}
+              onClick={() => setSelected(item)}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.5, delay: i * 0.05, type: 'spring', stiffness: 100, damping: 18 }}
-              className="group"
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="relative w-full aspect-[4/3] overflow-hidden bg-[#EDE8E0] group cursor-pointer text-left"
             >
-              {item.type === 'photo' ? (
-                <motion.button
-                  onClick={() => setSelected(item)}
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  className="w-full text-left"
-                >
-                  <div className="bg-white p-3 shadow-lg shadow-black/5 transition-shadow duration-300 group-hover:shadow-xl group-hover:shadow-black/10">
-                    <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#FAFAF8]">
-                      <img
-                        src={item.src}
-                        alt={item.alt}
-                        className="w-full h-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-2 px-1">
-                    <p className="text-[11px] font-medium text-foreground/70 tracking-wide uppercase">
-                      {item.caption}
-                    </p>
-                  </div>
-                </motion.button>
-              ) : (
-                <div className="w-full">
-                  <div className="bg-white p-3 shadow-lg shadow-black/5">
-                    <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#FAFAF8]">
-                      <ArtComponent name={item.component} />
-                    </div>
-                  </div>
-                  <div className="mt-2 px-1">
-                    <p className="text-[11px] font-medium text-foreground/70 tracking-wide uppercase">
-                      {item.caption}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </motion.div>
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-sm md:text-base font-medium tracking-wide">
+                  {item.caption}
+                </p>
+              </div>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -116,7 +77,7 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 md:p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-3 md:p-4"
             onClick={() => setSelected(null)}
           >
             <button
@@ -151,11 +112,11 @@ export default function Gallery() {
               transition={{ duration: 0.3 }}
               src={selected.src}
               alt={selected.alt}
-              className="max-w-full max-h-[80vh] md:max-h-[85vh] rounded-xl shadow-2xl object-contain"
+              className="max-w-full max-h-[85vh] w-auto h-auto object-contain"
               onClick={(e) => e.stopPropagation()}
             />
 
-            <p className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-xs md:text-sm bg-black/40 px-3 py-1.5 md:px-4 md:py-2 rounded-full whitespace-nowrap">
+            <p className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-xs md:text-sm bg-black/50 px-4 py-2 rounded-full whitespace-nowrap">
               {selected.caption}
             </p>
           </motion.div>
@@ -163,9 +124,4 @@ export default function Gallery() {
       </AnimatePresence>
     </section>
   )
-}
-
-function ArtComponent({ name }) {
-  const Component = ART_COMPONENTS[name]
-  return Component ? <Component /> : null
 }

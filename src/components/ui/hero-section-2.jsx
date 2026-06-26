@@ -57,7 +57,7 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left Side: Content */}
-        <div className="flex w-full flex-col justify-between p-8 md:w-[45%] md:p-12 lg:p-16">
+        <div className="flex w-full flex-col justify-between p-8 md:w-[50%] md:p-12 lg:p-16">
           <div>
             <motion.header className="mb-12" variants={itemVariants}>
               {logo && (
@@ -131,35 +131,23 @@ const HeroSection = React.forwardRef(
           </motion.footer>
         </div>
 
-        {/* Right Side: Framed cake image */}
-        <div className="relative w-full min-h-[50vh] md:w-[55%] md:min-h-screen bg-[#F5F2ED] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F2ED] via-[#F0EDE6] to-[#EDE8E0]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.6)_0%,transparent_70%)]" />
+        {/* Right Side: Placeholder visual */}
+        <div className="relative w-full min-h-[50vh] md:w-[50%] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#D4A574] via-[#C4926A] to-[#A87850]">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23FFFFFF\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5" />
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-            className="relative z-10 w-[80%] sm:w-[70%] lg:w-[75%] max-w-lg"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+            className="relative z-10 w-full h-full flex items-center justify-center"
           >
-            <div className="bg-white p-6 shadow-2xl shadow-black/10">
-              <div className="relative w-full aspect-[3/4]">
-                <img
-                  src={backgroundImage}
-                  alt=""
-                  className="w-full h-full object-contain"
-                  loading="eager"
-                />
-              </div>
-            </div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
-              className="mt-4 text-center text-[11px] text-muted-foreground/60 tracking-[0.25em] uppercase"
-            >
-              Vanilla Buttercream · Featured
-            </motion.p>
+            <svg viewBox="0 0 400 400" className="w-72 h-72 md:w-96 md:h-96 text-white/15">
+              <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" strokeWidth="1" />
+              <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" strokeWidth="0.5" />
+              <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" strokeWidth="0.3" />
+              <text x="200" y="220" textAnchor="middle" fill="currentColor" fontSize="160" fontFamily="serif" fontWeight="300" letterSpacing="10">S</text>
+            </svg>
           </motion.div>
         </div>
       </motion.section>

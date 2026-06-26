@@ -12,9 +12,7 @@ import Footer from './components/Footer'
 import OrderModal from './components/OrderModal'
 import Loader from './components/Loader'
 import DoodleDivider from './components/DoodleDivider'
-import { IMAGES } from './data/images'
 
-const HERO_IMAGE = IMAGES['vanilla-buttercream']
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -59,7 +57,6 @@ function App() {
           callToAction={{
             text: 'ORDER NOW',
           }}
-          backgroundImage={HERO_IMAGE}
           contactInfo={{
             website: '',
             phone: '+91 98365 37447',

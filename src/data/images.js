@@ -14,20 +14,16 @@ export const IMAGES = {
 }
 
 export const GALLERY_IMAGES = [
-  { key: 'vanilla-buttercream', type: 'photo', alt: 'Vanilla Buttercream Cake', caption: 'Vanilla Buttercream' },
-  { key: 'cupcakes', type: 'photo', alt: 'Frosted Cupcakes', caption: 'Cupcakes' },
-  { key: null, type: 'art', component: 'ArtPieceCircle', alt: 'Abstract concentric circles', caption: 'Composition I — 2024' },
-  { key: 'chocolate-cake', type: 'photo', alt: 'Chocolate Cake', caption: 'Chocolate Cake' },
-  { key: 'tiramisu', type: 'photo', alt: 'Tiramisu Cake', caption: 'Tiramisu' },
-  { key: 'jersey-cake', type: 'photo', alt: 'Jersey Cake', caption: 'Jersey Cake' },
-  { key: 'sweet-stitches', type: 'photo', alt: 'Sweet Stitches Cake', caption: 'Sweet Stitches' },
-  { key: null, type: 'art', component: 'ArtPieceLines', alt: 'Abstract line study', caption: 'Étude en Ligne — 2024' },
-  { key: 'flower-cake-pot', type: 'photo', alt: 'Flower Cake Pot', caption: 'Flower Cake Pot' },
-  { key: 'chocolate-affair', type: 'photo', alt: 'Chocolate Affair', caption: 'Chocolate Affair' },
-  { key: null, type: 'art', component: 'ArtPieceSwatch', alt: 'Color field study', caption: 'Field Study — 2024' },
-  { key: 'birthday-27', type: 'photo', alt: '27th Birthday Cake', caption: 'Birthday Elegance' },
-  { key: 'motocross-cake', type: 'photo', alt: 'Motocross Theme Cake', caption: 'Motocross Cake' },
-  { key: null, type: 'art', component: 'ArtPieceMonogram', alt: 'Lettermark S', caption: 'Lettermark S — Monogram' },
+  { key: 'vanilla-buttercream', alt: 'Vanilla Buttercream Cake', caption: 'Vanilla Buttercream' },
+  { key: 'cupcakes', alt: 'Frosted Cupcakes', caption: 'Cupcakes' },
+  { key: 'chocolate-cake', alt: 'Chocolate Cake', caption: 'Chocolate Cake' },
+  { key: 'tiramisu', alt: 'Tiramisu Cake', caption: 'Tiramisu' },
+  { key: 'jersey-cake', alt: 'Jersey Cake', caption: 'Jersey Cake' },
+  { key: 'sweet-stitches', alt: 'Sweet Stitches Cake', caption: 'Sweet Stitches' },
+  { key: 'flower-cake-pot', alt: 'Flower Cake Pot', caption: 'Flower Cake Pot' },
+  { key: 'chocolate-affair', alt: 'Chocolate Affair', caption: 'Chocolate Affair' },
+  { key: 'birthday-27', alt: '27th Birthday Cake', caption: 'Birthday Elegance' },
+  { key: 'motocross-cake', alt: 'Motocross Theme Cake', caption: 'Motocross Cake' },
 ]
 
 export const MENU_IMAGES = [
