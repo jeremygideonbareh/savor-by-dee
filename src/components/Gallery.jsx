@@ -5,31 +5,17 @@ import { SectionEyebrow, CharReveal } from './RevealText'
 import FloatingSprinkles from './FloatingSprinkles'
 import { GALLERY_IMAGES, IMAGES } from '../data/images'
 
-function getRandomRotation() {
-  const rots = [-2, -1.5, -1, 0, 1, 1.5, 2, 2.5]
-  return rots[Math.floor(Math.random() * rots.length)]
-}
-
-const collageLayout = [
-  { col: '1 / 3', row: '1 / 3' },
-  { col: '3 / 5', row: '1 / 2' },
-  { col: '5 / 7', row: '1 / 3' },
-  { col: '3 / 4', row: '2 / 3' },
-  { col: '4 / 5', row: '2 / 3' },
-  { col: '1 / 4', row: '3 / 5' },
-  { col: '4 / 7', row: '3 / 4' },
-  { col: '4 / 7', row: '4 / 5' },
-]
-
-const polaroidStyles = [
-  { rotate: -2, pad: 'p-2', offsetY: 0, offsetX: 0 },
-  { rotate: 1.5, pad: 'p-2.5', offsetY: -4, offsetX: 2 },
-  { rotate: -1, pad: 'p-2', offsetY: 2, offsetX: -2 },
-  { rotate: 2.5, pad: 'p-1.5', offsetY: -2, offsetX: 0 },
-  { rotate: -2.5, pad: 'p-2', offsetY: 0, offsetX: 3 },
-  { rotate: 0.5, pad: 'p-2.5', offsetY: 3, offsetX: -1 },
-  { rotate: -1.5, pad: 'p-2', offsetY: -3, offsetX: 0 },
-  { rotate: 1, pad: 'p-1.5', offsetY: 0, offsetX: 2 },
+const polaroidVariants = [
+  { rotate: -2, pad: 'p-2.5' },
+  { rotate: 2, pad: 'p-2' },
+  { rotate: -1.5, pad: 'p-3' },
+  { rotate: 1, pad: 'p-2' },
+  { rotate: -2.5, pad: 'p-2.5' },
+  { rotate: 1.5, pad: 'p-2' },
+  { rotate: -1, pad: 'p-3' },
+  { rotate: 2.5, pad: 'p-2' },
+  { rotate: -0.5, pad: 'p-2.5' },
+  { rotate: 0.5, pad: 'p-2' },
 ]
 
 export default function Gallery() {
@@ -38,8 +24,7 @@ export default function Gallery() {
   const galleryItems = GALLERY_IMAGES.map((img, i) => ({
     ...img,
     src: IMAGES[img.key],
-    layout: collageLayout[i % collageLayout.length],
-    style: polaroidStyles[i % polaroidStyles.length],
+    variant: polaroidVariants[i % polaroidVariants.length],
   }))
 
   const currentIndex = selected !== null ? galleryItems.findIndex((img) => img.src === selected.src) : -1
@@ -76,65 +61,32 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="hidden md:grid gap-4" style={{ gridTemplateColumns: 'repeat(6, 1fr)', gridTemplateRows: 'repeat(4, 160px)' }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
           {galleryItems.map((img, i) => (
             <motion.button
               key={img.key}
-              initial={{ opacity: 0, y: 40, rotate: -3 }}
-              whileInView={{ opacity: 1, y: 0, rotate: img.style.rotate }}
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, rotate: img.variant.rotate }}
               viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.6, delay: i * 0.08, type: 'spring', stiffness: 80, damping: 14 }}
-              whileHover={{ scale: 1.03, rotate: 0, zIndex: 20 }}
+              transition={{ duration: 0.5, delay: i * 0.06, type: 'spring', stiffness: 100, damping: 16 }}
+              whileHover={{ scale: 1.05, rotate: 0, zIndex: 20 }}
               onClick={() => setSelected(img)}
-              className="group relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
-              style={{
-                gridColumn: img.layout.col,
-                gridRow: img.layout.row,
-                transform: `translateY(${img.style.offsetY}px) translateX(${img.style.offsetX}px)`,
-              }}
+              className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
             >
-              <div className={`${img.style.pad} w-full h-full`}>
-                <div className="relative w-full h-full overflow-hidden rounded-sm">
+              <div className={`${img.variant.pad} w-full`}>
+                <div className="relative w-full aspect-square overflow-hidden rounded-md">
                   <img
                     src={img.src}
                     alt={img.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </div>
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-sm">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-foreground text-[11px] font-medium px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-sm">
                 {img.caption}
               </div>
-            </motion.button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 md:hidden">
-          {galleryItems.slice(0, 6).map((img, i) => (
-            <motion.button
-              key={img.key}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
-              onClick={() => setSelected(img)}
-              className="group relative overflow-hidden rounded-xl bg-white shadow-md aspect-[4/3]"
-            >
-              <div className="p-1.5 w-full h-full">
-                <div className="relative w-full h-full overflow-hidden rounded-lg">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <p className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium truncate drop-shadow-md">
-                {img.caption}
-              </p>
             </motion.button>
           ))}
         </div>

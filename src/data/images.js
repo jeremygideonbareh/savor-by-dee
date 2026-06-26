@@ -20,6 +20,8 @@ export const GALLERY_IMAGES = [
   { key: 'sweet-stitches', alt: 'Sweet Stitches Cake', caption: 'Sweet Stitches' },
   { key: 'flower-cake-pot', alt: 'Flower Cake Pot', caption: 'Flower Cake Pot' },
   { key: 'chocolate-affair', alt: 'Chocolate Affair', caption: 'Chocolate Affair' },
+  { key: 'birthday-27', alt: '27th Birthday Cake', caption: 'Birthday Elegance' },
+  { key: 'motocross-cake', alt: 'Motocross Theme Cake', caption: 'Motocross Cake' },
 ]
 
 export const MENU_IMAGES = [
