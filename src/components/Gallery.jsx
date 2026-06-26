@@ -1,59 +1,63 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
+import { SectionEyebrow, CharReveal } from './RevealText'
+import FloatingSprinkles from './FloatingSprinkles'
+import { GALLERY_IMAGES, IMAGES } from '../data/images'
 
-const images = [
-  {
-    src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80',
-    alt: 'Beautiful custom cake with icing',
-    caption: 'Custom Creations',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&q=80',
-    alt: 'Elegant layered cake',
-    caption: 'Layered Cakes',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=800&q=80',
-    alt: 'Frosted cupcakes on display',
-    caption: 'Cupcakes',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80',
-    alt: 'Chocolate cake dessert',
-    caption: 'Chocolate Indulgence',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80',
-    alt: 'Tiramisu dessert',
-    caption: 'Tiramisu',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80',
-    alt: 'Fresh fruit tarts',
-    caption: 'Fruit Tarts',
-  },
+function getRandomRotation() {
+  const rots = [-2, -1.5, -1, 0, 1, 1.5, 2, 2.5]
+  return rots[Math.floor(Math.random() * rots.length)]
+}
+
+const collageLayout = [
+  { col: '1 / 3', row: '1 / 3' },
+  { col: '3 / 5', row: '1 / 2' },
+  { col: '5 / 7', row: '1 / 3' },
+  { col: '3 / 4', row: '2 / 3' },
+  { col: '4 / 5', row: '2 / 3' },
+  { col: '1 / 4', row: '3 / 5' },
+  { col: '4 / 7', row: '3 / 4' },
+  { col: '4 / 7', row: '4 / 5' },
+]
+
+const polaroidStyles = [
+  { rotate: -2, pad: 'p-2', offsetY: 0, offsetX: 0 },
+  { rotate: 1.5, pad: 'p-2.5', offsetY: -4, offsetX: 2 },
+  { rotate: -1, pad: 'p-2', offsetY: 2, offsetX: -2 },
+  { rotate: 2.5, pad: 'p-1.5', offsetY: -2, offsetX: 0 },
+  { rotate: -2.5, pad: 'p-2', offsetY: 0, offsetX: 3 },
+  { rotate: 0.5, pad: 'p-2.5', offsetY: 3, offsetX: -1 },
+  { rotate: -1.5, pad: 'p-2', offsetY: -3, offsetX: 0 },
+  { rotate: 1, pad: 'p-1.5', offsetY: 0, offsetX: 2 },
 ]
 
 export default function Gallery() {
   const [selected, setSelected] = useState(null)
 
-  const currentIndex = selected !== null ? images.findIndex((img) => img.src === selected.src) : -1
+  const galleryItems = GALLERY_IMAGES.map((img, i) => ({
+    ...img,
+    src: IMAGES[img.key],
+    layout: collageLayout[i % collageLayout.length],
+    style: polaroidStyles[i % polaroidStyles.length],
+  }))
+
+  const currentIndex = selected !== null ? galleryItems.findIndex((img) => img.src === selected.src) : -1
 
   const goNext = () => {
-    const next = (currentIndex + 1) % images.length
-    setSelected(images[next])
+    const next = (currentIndex + 1) % galleryItems.length
+    setSelected(galleryItems[next])
   }
 
   const goPrev = () => {
-    const prev = (currentIndex - 1 + images.length) % images.length
-    setSelected(images[prev])
+    const prev = (currentIndex - 1 + galleryItems.length) % galleryItems.length
+    setSelected(galleryItems[prev])
   }
 
   return (
-    <section id="gallery" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6">
+    <section id="gallery" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <FloatingSprinkles count={10} />
 
       <div className="mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -72,25 +76,63 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {images.map((img, i) => (
+        <div className="hidden md:grid gap-4" style={{ gridTemplateColumns: 'repeat(6, 1fr)', gridTemplateRows: 'repeat(4, 160px)' }}>
+          {galleryItems.map((img, i) => (
             <motion.button
-              key={img.src}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              key={img.key}
+              initial={{ opacity: 0, y: 40, rotate: -3 }}
+              whileInView={{ opacity: 1, y: 0, rotate: img.style.rotate }}
+              viewport={{ once: true, margin: '-30px' }}
+              transition={{ duration: 0.6, delay: i * 0.08, type: 'spring', stiffness: 80, damping: 14 }}
+              whileHover={{ scale: 1.03, rotate: 0, zIndex: 20 }}
               onClick={() => setSelected(img)}
-              className="group relative w-full overflow-hidden rounded-xl aspect-[4/3] block"
+              className="group relative overflow-hidden rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+              style={{
+                gridColumn: img.layout.col,
+                gridRow: img.layout.row,
+                transform: `translateY(${img.style.offsetY}px) translateX(${img.style.offsetX}px)`,
+              }}
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <p className="absolute bottom-2 left-2 right-2 text-white text-xs md:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-1 group-hover:translate-y-0 truncate">
+              <div className={`${img.style.pad} w-full h-full`}>
+                <div className="relative w-full h-full overflow-hidden rounded-sm">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-sm">
+                {img.caption}
+              </div>
+            </motion.button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 md:hidden">
+          {galleryItems.slice(0, 6).map((img, i) => (
+            <motion.button
+              key={img.key}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              onClick={() => setSelected(img)}
+              className="group relative overflow-hidden rounded-xl bg-white shadow-md aspect-[4/3]"
+            >
+              <div className="p-1.5 w-full h-full">
+                <div className="relative w-full h-full overflow-hidden rounded-lg">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <p className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium truncate drop-shadow-md">
                 {img.caption}
               </p>
             </motion.button>

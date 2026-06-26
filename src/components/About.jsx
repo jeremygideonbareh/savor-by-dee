@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { SectionEyebrow, SectionHeading, WordReveal } from './RevealText'
+import StampBadge from './StampBadge'
 
 const values = [
   {
@@ -11,6 +12,7 @@ const values = [
     title: 'Rated 4.6 Stars',
     desc: 'Our community rates us 4.6 — every review, every order, every creation reflects our commitment to excellence.',
     icon: '⭐',
+    stamp: true,
   },
   {
     title: 'Community Rooted',
@@ -92,7 +94,11 @@ export default function About() {
                 className="group rounded-xl border border-primary/20 bg-white/90 backdrop-blur-sm p-5 md:p-6 hover:border-primary/40 hover:bg-white transition-all shadow-sm hover:shadow-md"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-xl shrink-0 mt-0.5">{v.icon}</span>
+                  {v.stamp ? (
+                    <StampBadge label="Rated" sublabel="4.6" />
+                  ) : (
+                    <span className="text-xl shrink-0 mt-0.5">{v.icon}</span>
+                  )}
                   <div>
                     <h3 className="font-medium text-foreground text-base md:text-lg">{v.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{v.desc}</p>

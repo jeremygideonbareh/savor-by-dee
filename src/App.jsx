@@ -11,8 +11,10 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import OrderModal from './components/OrderModal'
 import Loader from './components/Loader'
+import DoodleDivider from './components/DoodleDivider'
+import { IMAGES } from './data/images'
 
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1920&q=80'
+const HERO_IMAGE = IMAGES['vanilla-buttercream']
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -66,8 +68,11 @@ function App() {
         />
 
         <About />
+        <DoodleDivider />
         <SignatureItems />
+        <DoodleDivider />
         <Gallery />
+        <DoodleDivider />
         <Reviews />
         <Contact onOrder={() => setOrderOpen(true)} />
         <Footer />

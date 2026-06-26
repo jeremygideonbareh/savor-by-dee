@@ -1,61 +1,25 @@
 import { motion } from 'framer-motion'
-import { SectionEyebrow, SectionHeading, CharReveal } from './RevealText'
+import { SectionEyebrow, CharReveal } from './RevealText'
+import { MENU_IMAGES, IMAGES } from '../data/images'
 
-const items = [
-  {
-    name: 'Custom Cakes',
-    desc: 'Birthday, anniversary, or just because. Order a custom-designed cake for your special occasion. Pre-book 2 days ahead.',
-    highlight: 'Signature',
-    price: '₹499+',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
-    badge: 'bg-amber-100 text-amber-700',
-  },
-  {
-    name: 'Cupcakes',
-    desc: 'Beautifully frosted cupcakes in a variety of flavours — perfect for parties, events, or a sweet treat.',
-    highlight: 'Best Seller',
-    price: '₹39',
-    image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&q=80',
-    badge: 'bg-amber-100 text-amber-700',
-  },
-  {
-    name: 'Chocolate Cake',
-    desc: 'Rich, moist chocolate sponge layered with silky ganache — a timeless classic that never disappoints.',
-    highlight: 'Must Try',
-    price: '₹349',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
-    badge: 'bg-orange-100 text-orange-700',
-  },
-  {
-    name: 'Tiramisu',
-    desc: 'Coffee-soaked layers with mascarpone cream — our take on the beloved Italian classic.',
-    highlight: 'Customer Pick',
-    price: '₹399',
-    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80',
-    badge: 'bg-pink-100 text-pink-700',
-  },
-  {
-    name: 'Vanilla Buttercream',
-    desc: 'Simple, elegant, and absolutely delicious. Classic vanilla cake with silky buttercream frosting.',
-    highlight: 'Classic',
-    price: '₹299',
-    image: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80',
-    badge: 'bg-green-100 text-green-700',
-  },
-  {
-    name: 'Celebration Cakes',
-    desc: 'Jersey cakes, themed designs, and custom creations for every milestone. Let us bring your vision to life.',
-    highlight: 'Custom Order',
-    price: '₹599+',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80',
-    badge: 'bg-rose-100 text-rose-700',
-  },
+const bentoLayout = [
+  { col: 'span-2', row: 'span-1' },
+  { col: 'span-1', row: 'span-1' },
+  { col: 'span-1', row: 'span-1' },
+  { col: 'span-1', row: 'span-1' },
+  { col: 'span-1', row: 'span-1' },
+  { col: 'span-2', row: 'span-1' },
 ]
 
 export default function SignatureItems() {
+  const items = MENU_IMAGES.map((item) => ({
+    ...item,
+    src: IMAGES[item.key],
+  }))
+
   return (
     <section id="menu" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
 
       <div className="mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -74,37 +38,48 @@ export default function SignatureItems() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="flex flex-col md:hidden gap-3">
           {items.map((item, i) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative rounded-xl border border-primary/10 bg-white overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all"
-            >
-              <div className="relative h-36 md:h-44 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                <span className={`absolute top-2.5 right-2.5 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded-full shadow-sm ${item.badge}`}>
-                  {item.highlight}
-                </span>
-                <span className="absolute bottom-2.5 left-2.5 text-white font-serif text-base md:text-lg font-medium drop-shadow-sm">
-                  {item.price}
-                </span>
-              </div>
-              <div className="p-4 md:p-5">
-                <h3 className="font-serif text-lg md:text-xl text-foreground mb-1.5">{item.name}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
+            <MenuItemCard key={item.name} item={item} index={i} />
           ))}
+        </div>
+
+        <div className="hidden md:grid gap-4" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+          {items.map((item, i) => {
+            const layout = bentoLayout[i % bentoLayout.length]
+            const isWide = layout.col === 'span-2'
+            return (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className={`group relative rounded-xl border border-primary/10 bg-white overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all ${isWide ? 'col-span-2' : 'col-span-1'}`}
+              >
+                <div className={`relative ${isWide ? 'h-52' : 'h-44'} overflow-hidden`}>
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="frosting-drip absolute bottom-0 left-0 right-0 h-0 bg-gradient-to-t from-primary/20 to-transparent transition-all duration-500 group-hover:h-8" />
+                  <span className={`absolute top-2.5 right-2.5 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded-full shadow-sm ${item.badge}`}>
+                    {item.highlight}
+                  </span>
+                  <span className="absolute bottom-2.5 left-2.5 text-white font-serif text-base md:text-lg font-medium drop-shadow-sm">
+                    {item.price}
+                  </span>
+                </div>
+                <div className="p-4 md:p-5">
+                  <h3 className="font-serif text-lg md:text-xl text-foreground mb-1.5">{item.name}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
 
         <motion.div
@@ -119,6 +94,81 @@ export default function SignatureItems() {
           </p>
         </motion.div>
       </div>
+
+      <style>{`
+        @keyframes drip {
+          0% { transform: translateY(-100%); opacity: 1; }
+          100% { transform: translateY(0); opacity: 0.6; }
+        }
+        .group:hover .frosting-drip {
+          height: 2rem;
+        }
+        .frosting-drip::after {
+          content: '';
+          position: absolute;
+          bottom: -6px;
+          left: 20%;
+          width: 6px;
+          height: 6px;
+          background: inherit;
+          border-radius: 50%;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+        .group:hover .frosting-drip::after {
+          opacity: 0.4;
+          animation: drip 1.2s ease-in-out infinite;
+        }
+        .frosting-drip::before {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          right: 35%;
+          width: 4px;
+          height: 4px;
+          background: inherit;
+          border-radius: 50%;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          animation-delay: 0.4s;
+        }
+        .group:hover .frosting-drip::before {
+          opacity: 0.3;
+          animation: drip 1.4s ease-in-out 0.4s infinite;
+        }
+      `}</style>
     </section>
+  )
+}
+
+function MenuItemCard({ item, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      className="group relative rounded-xl border border-primary/10 bg-white overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all"
+    >
+      <div className="relative h-36 overflow-hidden">
+        <img
+          src={item.src}
+          alt={item.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+        <span className={`absolute top-2.5 right-2.5 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded-full shadow-sm ${item.badge}`}>
+          {item.highlight}
+        </span>
+        <span className="absolute bottom-2.5 left-2.5 text-white font-serif text-base font-medium drop-shadow-sm">
+          {item.price}
+        </span>
+      </div>
+      <div className="p-4">
+        <h3 className="font-serif text-lg text-foreground mb-1">{item.name}</h3>
+        <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+      </div>
+    </motion.div>
   )
 }
