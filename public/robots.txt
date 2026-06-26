@@ -7,4 +7,4 @@ Disallow: /backend/
 Disallow: /node_modules/
 
 # ─── Sitemap ────────────────────────────────────────────────────────────────
-Sitemap: https://jeremygideonbareh.github.io/biteclub-bakery/sitemap.xml
+Sitemap: https://jeremygideonbareh.github.io/savor-by-dee/sitemap.xml
