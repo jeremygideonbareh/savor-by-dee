@@ -131,19 +131,18 @@ const HeroSection = React.forwardRef(
           </motion.footer>
         </div>
 
-        {/* Right Side: Gallery wall with framed image */}
-        <div className="relative w-full min-h-[50vh] md:w-[55%] md:min-h-screen bg-[#EDE8E0] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#EDE8E0] via-[#F0EDE6] to-[#E8E3DB]" />
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'0.15\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.5)_0%,transparent_70%)]" />
+        {/* Right Side: Framed cake image */}
+        <div className="relative w-full min-h-[50vh] md:w-[55%] md:min-h-screen bg-[#F5F2ED] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F5F2ED] via-[#F0EDE6] to-[#EDE8E0]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.6)_0%,transparent_70%)]" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-            className="relative z-10 w-[85%] max-w-md"
+            className="relative z-10 w-[80%] sm:w-[70%] lg:w-[75%] max-w-lg"
           >
-            <div className="bg-white p-5 shadow-2xl shadow-black/10">
+            <div className="bg-white p-6 shadow-2xl shadow-black/10">
               <div className="relative w-full aspect-[3/4]">
                 <img
                   src={backgroundImage}
@@ -157,7 +156,7 @@ const HeroSection = React.forwardRef(
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9, duration: 0.5 }}
-              className="mt-3 text-center text-[10px] text-muted-foreground/50 tracking-[0.25em] uppercase"
+              className="mt-4 text-center text-[11px] text-muted-foreground/60 tracking-[0.25em] uppercase"
             >
               Vanilla Buttercream · Featured
             </motion.p>
