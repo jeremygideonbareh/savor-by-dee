@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1&display=swap');
+@import url('https://fonts.cdnfonts.com/css/cofo-sans');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 95%;
+    --foreground: 25 40% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 40% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 40% 14%;
+    --primary: 18 55% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 40% 84%;
+    --secondary-foreground: 25 40% 14%;
+    --muted: 25 10% 50%;
+    --muted-foreground: 25 12% 40%;
+    --accent: 130 20% 46%;
+    --accent-foreground: 25 40% 14%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 20% 88%;
+    --input: 25 20% 88%;
+    --ring: 18 55% 52%;
+    --radius: 0.75rem;
+
+    --main: #B86C4A;
+    --overlay: rgba(0, 0, 0, 0.5);
+    --bg: #F7F4F0;
+    --bw: #ffffff;
+    --blank: #000000;
+    --text: #2C1810;
+    --mtext: #ffffff;
+    --ring-offset: #F7F4F0;
+    --box-shadow-x: 4px;
+    --box-shadow-y: 4px;
+    --reverse-box-shadow-x: -4px;
+    --reverse-box-shadow-y: -4px;
+    --base-font-weight: 500;
+    --heading-font-weight: 700;
+    --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'CoFo Sans', 'Satoshi', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
