@@ -13,6 +13,7 @@ import OrderModal from './components/OrderModal'
 import Loader from './components/Loader'
 import DoodleDivider from './components/DoodleDivider'
 
+const HERO_IMAGE = 'https://images.pexels.com/photos/7328340/pexels-photo-7328340.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1500&fit=crop'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -57,6 +58,7 @@ function App() {
           callToAction={{
             text: 'ORDER NOW',
           }}
+          backgroundImage={HERO_IMAGE}
           contactInfo={{
             website: '',
             phone: '+91 98365 37447',

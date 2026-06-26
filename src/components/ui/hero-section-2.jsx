@@ -131,24 +131,25 @@ const HeroSection = React.forwardRef(
           </motion.footer>
         </div>
 
-        {/* Right Side: Placeholder visual */}
-        <div         className="relative w-full min-h-[50vh] md:w-[50%] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#E8D0C8] via-[#DDC0B5] to-[#D4B0A5]">
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23FFFFFF\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-black/5" />
-
+        {/* Right Side: Cinematic cake shot */}
+        <div className="relative w-full min-h-[50vh] md:w-[50%] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#1A1512]">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
-            className="relative z-10 w-full h-full flex items-center justify-center"
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            className="absolute inset-0"
           >
-            <svg viewBox="0 0 400 400" className="w-72 h-72 md:w-96 md:h-96 text-white/30">
-              <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" strokeWidth="1" />
-              <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" strokeWidth="0.5" />
-              <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" strokeWidth="0.3" />
-              <text x="200" y="220" textAnchor="middle" fill="currentColor" fontSize="160" fontFamily="serif" fontWeight="300" letterSpacing="10">S</text>
-            </svg>
+            {backgroundImage && (
+              <img
+                src={backgroundImage}
+                alt=""
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            )}
           </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1512]/70 via-transparent to-[#1A1512]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A1512]/40 via-transparent to-[#1A1512]/20" />
         </div>
       </motion.section>
     )
