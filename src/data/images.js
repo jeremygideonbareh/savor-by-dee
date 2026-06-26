@@ -1,6 +1,8 @@
 const PEXELS = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop`
+const PEXELS_WIDE = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1200&fit=crop`
 
 export const IMAGES = {
+  hero: PEXELS_WIDE(1028714),
   'vanilla-buttercream': PEXELS(140831),
   cupcakes: PEXELS(14105),
   'chocolate-cake': PEXELS(132694),
