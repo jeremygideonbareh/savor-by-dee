@@ -1,66 +1,22 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import { SectionEyebrow, CharReveal } from './RevealText'
-
-const reviews = [
-  {
-    name: 'Priya S.',
-    text: "Ordered a custom birthday cake and it was absolutely stunning! Beautifully decorated and so delicious. Everyone at the party couldn't stop complimenting it. Will definitely be ordering again!",
-    rating: 5,
-    source: 'Google',
-    when: '2026',
-  },
-  {
-    name: 'Rahul M.',
-    text: "The best cupcakes in Shillong! Moist, perfectly sweet, and beautifully frosted. Savor by Dee is my go-to for all celebrations. Highly recommend the chocolate ganache cupcakes!",
-    rating: 5,
-    source: 'Google',
-    when: '2026',
-  },
-  {
-    name: 'Ananya D.',
-    text: 'I ordered a tiramisu cake and it was divine. You can taste the quality in every bite. The owner is incredibly sweet and accommodating. A true gem in Shillong!',
-    rating: 5,
-    source: 'Google',
-    when: '2026',
-  },
-  {
-    name: 'Vikram T.',
-    text: "Their custom cake design exceeded my expectations. The attention to detail is remarkable. If you're looking for quality bakes in Shillong, this is the place.",
-    rating: 5,
-    source: 'Google',
-    when: '2026',
-  },
-  {
-    name: 'Megan W.',
-    text: "The vanilla buttercream cake was simple perfection. Fresh, light, and not overly sweet. You can tell they use quality ingredients. So glad I found this place!",
-    rating: 5,
-    source: 'Google',
-    when: '2026',
-  },
-  {
-    name: 'Tasha K.',
-    text: "Absolutely loved the jersey cake! Fresh mango was the perfect choice. Beautiful presentation and even better taste. Highly recommend for any celebration!",
-    rating: 5,
-    source: 'Google',
-    when: '2026',
-  },
-]
+import { reviews } from '../data'
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="relative py-20 md:py-28 lg:py-36 px-4 md:px-6">
+    <section id="reviews" className="relative py-20 md:py-28 lg:py-36 px-6">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <SectionEyebrow>Testimonials</SectionEyebrow>
-          <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium leading-[1.2] text-balance text-foreground">
-            <CharReveal>What </CharReveal>
-            <span className="text-primary italic"><CharReveal delay={0.3}>everyone</CharReveal></span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.2] text-foreground mt-4">
+            <CharReveal>What our </CharReveal>
+            <span className="text-primary italic"><CharReveal delay={0.3}>community</CharReveal></span>
             <CharReveal delay={0.5}> says</CharReveal>
           </h2>
           <div className="mt-4 md:mt-6 flex items-center justify-center gap-3">

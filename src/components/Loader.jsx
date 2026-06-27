@@ -2,9 +2,9 @@ const Loader = () => {
   const loaderCss = `
     .loader {
       --duration: 3s;
-      --primary: #B86C4A;
-    --primary-light: #D49A7A;
-    --primary-rgba: rgba(184, 108, 74, 0);
+      --primary: #8cbf9a;
+      --primary-light: #b5d8c0;
+      --primary-rgba: rgba(140, 191, 154, 0);
       width: 200px;
       height: 320px;
       position: relative;
@@ -23,7 +23,7 @@ const Loader = () => {
       position: absolute;
       right: 32%;
       bottom: -11px;
-      background: #F7F4F0;
+      background: #f5f9f5;
       transform: translateZ(200px) rotate(var(--r));
       animation: mask var(--duration) linear forwards infinite;
     }
@@ -172,7 +172,7 @@ const Loader = () => {
           </div>
         </div>
         <div className="text-center">
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-[0.15em] text-primary loader-title">
+          <h1 className="font-logo text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-[0.08em] text-primary loader-title">
             SAVOR BY DEE
           </h1>
         </div>

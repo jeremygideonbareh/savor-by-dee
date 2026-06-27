@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { Globe, Phone, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { IMAGES } from '@/data/images'
 
 const icons = {
   website: Globe,
@@ -21,7 +20,7 @@ function InfoIcon({ type }) {
 }
 
 const HeroSection = React.forwardRef(
-  ({ className, logo, slogan, title, subtitle, callToAction, contactInfo, onOrder, ...props }, ref) => {
+  ({ className, logo, slogan, title, subtitle, callToAction, backgroundImage, contactInfo, onOrder, ...props }, ref) => {
     const containerVariants = {
       hidden: { opacity: 0 },
       visible: {
@@ -49,7 +48,7 @@ const HeroSection = React.forwardRef(
       <motion.section
         ref={ref}
         className={cn(
-          'relative flex w-full flex-col overflow-hidden bg-background text-foreground md:flex-row md:min-h-dvh',
+          'relative flex w-full flex-col overflow-hidden bg-background text-foreground md:flex-row min-h-screen',
           className,
         )}
         initial="hidden"
@@ -58,7 +57,7 @@ const HeroSection = React.forwardRef(
         {...props}
       >
         {/* Left Side: Content */}
-        <div className="flex w-full flex-col justify-between p-6 md:p-12 lg:p-16 md:w-[50%]">
+        <div className="flex w-full flex-col justify-between p-8 md:w-[45%] md:p-12 lg:p-16">
           <div>
             <motion.header className="mb-12" variants={itemVariants}>
               {logo && (
@@ -132,14 +131,25 @@ const HeroSection = React.forwardRef(
           </motion.footer>
         </div>
 
-        {/* Right Side: Bakery photo */}
-        <div className="relative w-full min-h-[40vh] md:w-[50%] md:min-h-dvh flex items-center justify-center overflow-hidden">
-          <img
-            src={IMAGES.hero}
-            alt="Savor by Dee bakery display"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+        {/* Right Side: Image with clip-path animation + gradient fade */}
+        <div className="relative w-full min-h-[50vh] md:w-[55%] md:min-h-screen">
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#F5F9F5] via-[#F5F9F5]/50 via-20% to-transparent to-35% pointer-events-none" />
+
+          <motion.div
+            className="absolute inset-0 overflow-hidden"
+            initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
+            animate={{
+              clipPath: 'polygon(3% 0, 100% 0, 100% 100%, 0% 100%)',
+            }}
+            transition={{ duration: 1.2, ease: 'circOut' }}
+          >
+            <img
+              src={backgroundImage}
+              alt=""
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+          </motion.div>
         </div>
       </motion.section>
     )

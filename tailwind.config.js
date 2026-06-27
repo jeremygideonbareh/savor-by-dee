@@ -40,18 +40,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        main: "var(--main)",
-        overlay: "var(--overlay)",
-        bg: "var(--bg)",
-        bw: "var(--bw)",
-        blank: "var(--blank)",
-        text: "var(--text)",
-        mtext: "var(--mtext)",
-        secondaryBlack: "#212121",
       },
       fontFamily: {
-        sans: ["CoFo Sans", "Satoshi", "Inter", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: ["Satoshi", "Inter", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
         serif: ["Fraunces", "Georgia", "ui-serif", "serif"],
+        logo: ["Abril Fatface", "Georgia", "serif"],
         input: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       fontSize: {
@@ -64,7 +57,6 @@ export default {
         display: ["63px", { lineHeight: "0.95", letterSpacing: "-0.69px" }],
       },
       borderRadius: {
-        base: "5px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -75,19 +67,6 @@ export default {
       },
       spacing: {
         4.5: "18px",
-      },
-      boxShadow: {
-        shadow: "var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border)",
-      },
-      translate: {
-        boxShadowX: "4px",
-        boxShadowY: "4px",
-        reverseBoxShadowX: "-4px",
-        reverseBoxShadowY: "-4px",
-      },
-      fontWeight: {
-        base: "500",
-        heading: "700",
       },
     },
   },

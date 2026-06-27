@@ -30,7 +30,7 @@ export default function Navbar({ onOrder }) {
       }`}
     >
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
-        <a href="#" className="font-serif text-xl md:text-2xl text-primary tracking-wide">
+        <a href="#" className="font-logo text-lg sm:text-xl md:text-2xl text-primary tracking-wide">
           Savor by Dee
         </a>
 
@@ -45,7 +45,7 @@ export default function Navbar({ onOrder }) {
             </a>
           ))}
           <Button onClick={onOrder} size="sm">
-            Pre-book
+                Pre-book
           </Button>
         </nav>
 
@@ -78,7 +78,7 @@ export default function Navbar({ onOrder }) {
                 </a>
               ))}
               <Button onClick={() => { setOpen(false); onOrder() }} size="sm">
-                Pre-book
+            Pre-book
               </Button>
             </div>
           </motion.div>

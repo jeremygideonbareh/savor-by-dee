@@ -1,48 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1&display=swap');
-@import url('https://fonts.cdnfonts.com/css/cofo-sans');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 40 8% 99%;
-    --foreground: 25 12% 22%;
+    --background: 30 30% 96%;
+    --foreground: 20 28% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 25 12% 22%;
+    --card-foreground: 20 28% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 25 12% 22%;
-    --primary: 12 50% 75%;
+    --popover-foreground: 20 28% 13%;
+    --primary: 12 65% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 18% 92%;
-    --secondary-foreground: 25 12% 22%;
-    --muted: 25 5% 70%;
-    --muted-foreground: 25 6% 55%;
-    --accent: 145 30% 65%;
-    --accent-foreground: 25 12% 22%;
+    --secondary: 35 40% 65%;
+    --secondary-foreground: 20 28% 13%;
+    --muted: 30 12% 50%;
+    --muted-foreground: 30 12% 42%;
+    --accent: 155 20% 60%;
+    --accent-foreground: 20 28% 13%;
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 25 6% 90%;
-    --input: 25 6% 90%;
-    --ring: 12 50% 75%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 12 65% 58%;
     --radius: 0.75rem;
-
-    --main: #F2C8B8;
-    --overlay: rgba(0, 0, 0, 0.15);
-    --bg: #FDFBF8;
-    --bw: #ffffff;
-    --blank: #000000;
-    --text: #3D2C22;
-    --mtext: #ffffff;
-    --ring-offset: #FDFBF8;
-    --box-shadow-x: 4px;
-    --box-shadow-y: 4px;
-    --reverse-box-shadow-x: -4px;
-    --reverse-box-shadow-y: -4px;
-    --base-font-weight: 500;
-    --heading-font-weight: 700;
-    --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
   }
 }
 
@@ -57,7 +38,7 @@ html {
 }
 
 body {
-  font-family: 'CoFo Sans', 'Satoshi', sans-serif;
+  font-family: 'Satoshi', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
