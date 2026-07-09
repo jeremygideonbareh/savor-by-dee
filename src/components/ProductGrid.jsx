@@ -24,15 +24,19 @@ export default function ProductGrid() {
           </h2>
         </div>
 
-        <div className="flex items-center justify-between mb-2">
-          <CategoryTabs categories={categories} active={activeCategory} onChange={setActiveCategory} />
-          <button
-            className="lg:hidden flex items-center gap-1.5 text-sm text-choco hover:text-rose transition-colors shrink-0 min-h-[44px] px-3"
-            onClick={() => setShowFilters(true)}
-          >
-            <SlidersHorizontal size={16} />
-            Filters
-          </button>
+        <div className="mb-8">
+          <div className="flex items-center justify-between gap-4">
+            <div className="min-w-0 flex-1">
+              <CategoryTabs categories={categories} active={activeCategory} onChange={setActiveCategory} />
+            </div>
+            <button
+              className="lg:hidden flex items-center gap-1.5 text-sm text-choco hover:text-rose transition-colors shrink-0 min-h-[44px] px-3"
+              onClick={() => setShowFilters(true)}
+            >
+              <SlidersHorizontal size={16} />
+              Filters
+            </button>
+          </div>
         </div>
 
         <div className="flex gap-8">

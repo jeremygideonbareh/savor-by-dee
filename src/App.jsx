@@ -30,16 +30,18 @@ export default function App() {
       <OrderModal open={orderOpen} onOpenChange={setOrderOpen} />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
-      <AnnouncementBar />
-      <Navbar onCartClick={() => setCartOpen(true)} onLoginClick={() => setLoginOpen(true)} />
-      <Hero onOrderClick={() => setOrderOpen(true)} />
-      <ProductGrid />
-      <Story />
-      <BestSellers />
-      <Trending />
-      <Press />
-      <Locations />
-      <Footer />
+      <div className="overflow-x-hidden">
+        <AnnouncementBar />
+        <Navbar onCartClick={() => setCartOpen(true)} onLoginClick={() => setLoginOpen(true)} />
+        <Hero onOrderClick={() => setOrderOpen(true)} />
+        <ProductGrid />
+        <Story />
+        <BestSellers />
+        <Trending />
+        <Press />
+        <Locations />
+        <Footer />
+      </div>
     </CartProvider>
   )
 }

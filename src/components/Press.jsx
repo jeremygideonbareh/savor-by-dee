@@ -14,7 +14,7 @@ export default function Press() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 150, damping: 15, delay: i * 0.08 }}
-              className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-cream/60 border border-border text-[11px] sm:text-xs text-muted font-medium tracking-tight"
+              className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-cream/60 border border-border text-[11px] sm:text-xs text-muted font-medium tracking-tight whitespace-nowrap"
             >
               {logo.alt}
             </motion.span>

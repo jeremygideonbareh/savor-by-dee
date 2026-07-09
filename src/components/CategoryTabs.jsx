@@ -16,7 +16,7 @@ export default function CategoryTabs({ categories, active, onChange }) {
   return (
     <div
       ref={scrollRef}
-      className="flex gap-1 border-b border-border mb-8 overflow-x-auto scrollbar-hide -mx-4 px-4 snap-x snap-mandatory"
+      className="flex gap-1 border-b border-border mb-0 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
     >
       {categories.map((cat) => (
         <button
