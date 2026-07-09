@@ -1,0 +1,175 @@
+export const categories = [
+  'All', 'Cookies', 'Cakes', 'Cupcakes', 'Brownies', 'Bakes',
+]
+
+export const products = [
+  {
+    id: 1,
+    name: 'Classic Chocolate Chip Cookie',
+    price: '\u20B980',
+    category: 'Cookies',
+    images: [
+      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=85',
+      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=85',
+    ],
+    description: 'Warm, gooey cookie with premium Belgian chocolate chunks.',
+    longDescription: 'Baked fresh every morning using premium Belgian chocolate chunks and the finest butter. Each batch is crafted to golden perfection — crisp edges with a soft, molten center.',
+    tag: 'Best Seller',
+    comparePrice: '\u20B9120',
+    flavors: ['Classic', 'Double Chocolate', 'White Macadamia'],
+    type: 'Add to cart',
+    rating: 4.8,
+  },
+  {
+    id: 2,
+    name: 'Red Velvet Cupcake',
+    price: '\u20B9150',
+    category: 'Cupcakes',
+    images: [
+      'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=85',
+    ],
+    description: 'Moist red velvet with cream cheese frosting.',
+    longDescription: 'A showstopper at every table. Our signature red velvet is impossibly moist, topped with a cloud of silky cream cheese frosting and a dusting of cocoa.',
+    tag: 'Popular',
+    flavors: ['Red Velvet', 'Vanilla', 'Chocolate'],
+    type: 'Add to cart',
+    rating: 4.7,
+  },
+  {
+    id: 3,
+    name: 'Blueberry Cheesecake Slice',
+    price: '\u20B9350',
+    category: 'Cakes',
+    images: [
+      'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&q=85',
+    ],
+    description: 'Creamy New York-style cheesecake.',
+    longDescription: 'Our take on the classic New York cheesecake — dense, velvety, and perched on a buttery graham cracker crust. Topped with a vibrant blueberry compote that cuts through the richness.',
+    flavors: ['Blueberry', 'Strawberry', 'Plain'],
+    type: 'Choose options',
+    rating: 4.9,
+  },
+  {
+    id: 4,
+    name: 'Gooey Brownie',
+    price: '\u20B9180',
+    category: 'Brownies',
+    images: [
+      'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=85',
+    ],
+    description: 'Fudgy dark chocolate brownie.',
+    longDescription: 'The gold standard of brownies. Deeply fudgy, intensely chocolatey, with that signature crackled top. Available in classic or biscoff \u2014 both dangerously delicious.',
+    tag: 'Must Try',
+    flavors: ['Classic', 'Biscoff'],
+    type: 'Add to cart',
+    rating: 4.9,
+  },
+  {
+    id: 5,
+    name: 'Cinnamon Roll',
+    price: '\u20B9220',
+    category: 'Bakes',
+    images: [
+      'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=85',
+    ],
+    description: 'Soft, pillowy cinnamon roll.',
+    longDescription: 'A labour of love. Each roll is laminated with spiced cinnamon butter, baked until golden, then drenched in a cream cheese glaze that seeps into every crevice.',
+    flavors: ['Original', 'Pecan', 'Apple'],
+    type: 'Add to cart',
+    rating: 4.6,
+  },
+  {
+    id: 6,
+    name: 'Tiramisu Cake Jar',
+    price: '\u20B9250',
+    category: 'Cakes',
+    images: [
+      'https://images.unsplash.com/photo-1727243992949-07231268cd37?w=600&q=85',
+    ],
+    description: 'Coffee-soaked layers with mascarpone.',
+    longDescription: 'Our signature tiramisu reimagined in a convenient jar. Espresso-soaked ladyfingers, silky mascarpone cream, and a dusting of cocoa \u2014 layered and ready to enjoy.',
+    tag: 'New',
+    flavors: ['Classic', 'Hazelnut', 'Salted Caramel'],
+    type: 'Add to cart',
+    rating: 4.8,
+  },
+  {
+    id: 7,
+    name: 'Chocolate Doughnut',
+    price: '\u20B9120',
+    category: 'Bakes',
+    images: [
+      'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=85',
+    ],
+    description: 'Fluffy doughnut dipped in dark chocolate.',
+    longDescription: 'Light as air, enrobed in a glossy dark chocolate glaze, and finished with a rainbow of sprinkles. The perfect companion to your morning brew.',
+    flavors: ['Dark Chocolate', 'White Chocolate', 'Glazed'],
+    type: 'Add to cart',
+    rating: 4.5,
+  },
+  {
+    id: 8,
+    name: 'Lamington',
+    price: '\u20B985',
+    category: 'Bakes',
+    images: [
+      'https://images.unsplash.com/photo-1564329298022-58a5dbaa68ed?w=600&q=85',
+    ],
+    description: 'Classic sponge dipped in chocolate and coconut.',
+    longDescription: 'A timeless favourite. Butter-soft sponge cake cubes dipped in rich chocolate sauce and rolled in fine desiccated coconut. Simple, nostalgic, irresistible.',
+    tag: 'Try Something New',
+    flavors: ['Classic', 'Raspberry', 'Lemon'],
+    type: 'Add to cart',
+    rating: 4.4,
+  },
+  {
+    id: 9,
+    name: 'Banana Bread Loaf',
+    price: '\u20B9340',
+    category: 'Cakes',
+    images: [
+      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=85',
+    ],
+    description: 'Moist banana bread with walnut crunch.',
+    longDescription: 'Made with overripe bananas for natural sweetness, studded with toasted walnuts, and baked to a tender, buttery finish. A half-loaf that never lasts long.',
+    comparePrice: '\u20B9420',
+    flavors: ['Walnut', 'Chocolate Chip', 'Plain'],
+    type: 'Add to cart',
+    rating: 4.7,
+  },
+]
+
+export const bestSellers = [
+  { name: 'Classic Chocolate Chip Cookie', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&q=85', count: '2.5k+' },
+  { name: 'Gooey Brownie', image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=85', count: '1.8k+' },
+  { name: 'Tiramisu Cake Jar', image: 'https://images.unsplash.com/photo-1727243992949-07231268cd37?w=400&q=85', count: '1.2k+' },
+]
+
+export const trendingProducts = [
+  {
+    id: 1,
+    name: 'Blueberry Cheesecake',
+    price: '\u20B9350',
+    description: 'Our most-loved dessert is flying off the shelves. Creamy, dreamy, and absolutely irresistible.',
+    details: ['New York-style baked cheesecake', 'Hand-picked blueberry compote', 'Buttery graham crust', 'Serves 4-6'],
+    allergens: 'Contains gluten, dairy, eggs',
+    image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&q=85',
+  },
+  {
+    id: 2,
+    name: 'Cinnamon Roll',
+    price: '\u20B9220',
+    description: 'Warm, gooey, and topped with cream cheese glaze \u2014 our cinnamon rolls are the talk of Shillong.',
+    details: ['Hand-laminated dough', 'Spiced brown sugar filling', 'Cream cheese drizzle', 'Baked fresh daily'],
+    allergens: 'Contains gluten, dairy, eggs',
+    image: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=85',
+  },
+]
+
+export const pressLogos = [
+  { alt: 'The Morning Show' },
+  { alt: 'Grazia' },
+  { alt: 'The Urban List' },
+  { alt: 'Shillong Times' },
+  { alt: 'Meghalaya Monitor' },
+]
