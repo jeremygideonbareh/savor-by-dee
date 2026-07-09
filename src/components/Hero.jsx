@@ -72,7 +72,7 @@ export default function Hero({ onOrderClick }) {
   return (
     <section
       ref={containerRef}
-      className="relative h-[200vh] -mt-16 overflow-x-hidden"
+      className="relative h-[150vh] sm:h-[200vh] -mt-16 overflow-x-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
