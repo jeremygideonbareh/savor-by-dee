@@ -72,11 +72,11 @@ export default function Hero({ onOrderClick }) {
   return (
     <section
       ref={containerRef}
-      className="relative h-[150vh] sm:h-[200vh] -mt-16 overflow-x-hidden"
+      className="relative min-h-dvh sm:h-[200vh] -mt-16 overflow-x-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="sticky top-0 h-dvh overflow-hidden bg-[#0a0a0a]">
+      <div className="sm:sticky sm:top-0 h-dvh overflow-hidden bg-[#0a0a0a]">
         <motion.div className="absolute inset-0" style={{ clipPath: clipPathVal }}>
           <AnimatePresence mode="popLayout">
             {HERO_IMAGES.map((img, idx) => (
