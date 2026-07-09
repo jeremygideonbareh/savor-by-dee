@@ -164,9 +164,6 @@ export const trendingProducts = [
     allergens: 'Contains gluten, dairy, eggs',
     image: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=85',
   },
-]
-
-export const customCakeProducts = [
   {
     id: 101,
     name: 'Classic Celebration Cake',
