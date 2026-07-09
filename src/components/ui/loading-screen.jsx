@@ -40,11 +40,11 @@ export default function LoadingScreen({ onFinish }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-blush"
     >
       <div className="relative mb-8">
         <motion.div
-          className="text-6xl sm:text-7xl font-display text-white"
+          className="text-6xl sm:text-7xl font-display text-choco"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -60,7 +60,7 @@ export default function LoadingScreen({ onFinish }) {
           <span className="text-rose">D</span>ee
         </motion.div>
         <motion.p
-          className="text-white/40 text-sm tracking-[0.3em] uppercase mt-2 text-center"
+          className="text-choco/50 text-sm tracking-[0.3em] uppercase mt-2 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -69,7 +69,7 @@ export default function LoadingScreen({ onFinish }) {
         </motion.p>
       </div>
 
-      <div className="w-48 sm:w-56 h-1 bg-white/10 rounded-full overflow-hidden">
+      <div className="w-48 sm:w-56 h-1 bg-rose/20 rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-rose to-gold rounded-full"
           style={{ width: `${progress}%` }}
@@ -78,7 +78,7 @@ export default function LoadingScreen({ onFinish }) {
       </div>
 
       <motion.p
-        className="text-white/30 text-xs mt-3 font-mono"
+        className="text-choco/40 text-xs mt-3 font-mono"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
