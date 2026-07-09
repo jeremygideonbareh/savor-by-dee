@@ -89,7 +89,7 @@ export default function Hero({ onOrderClick }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-3xl"
+          className="max-w-3xl mx-auto text-center"
         >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -108,7 +108,7 @@ export default function Hero({ onOrderClick }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-display text-white leading-[1.05] mb-3 text-balance"
+            className="text-4xl sm:text-5xl md:text-7xl font-display text-white leading-[1.05] mb-3 text-balance text-center"
           >
             The Artisanal <br />
             <motion.span
@@ -124,7 +124,7 @@ export default function Hero({ onOrderClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-white/80 text-base sm:text-lg max-w-lg mb-6 sm:mb-8 text-balance"
+            className="text-white/80 text-base sm:text-lg max-w-lg mx-auto mb-6 sm:mb-8 text-balance text-center"
           >
             Handcrafted cakes, cookies &amp; sweet treats made with love in Shillong.
           </motion.p>
@@ -133,7 +133,7 @@ export default function Hero({ onOrderClick }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-col items-center gap-3"
           >
             <motion.div
               animate={{ boxShadow: ['0 0 0 0 rgba(231,130,130,0.4)', '0 0 0 12px rgba(231,130,130,0)'] }}
