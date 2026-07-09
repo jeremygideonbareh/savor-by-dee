@@ -1,5 +1,5 @@
 export const categories = [
-  'All', 'Cookies', 'Cakes', 'Cupcakes', 'Brownies', 'Bakes', 'Custom Cakes',
+  'All', 'Cookies', 'Cakes', 'Cupcakes', 'Brownies', 'Bakes',
 ]
 
 export const products = [
@@ -171,7 +171,7 @@ export const customCakeProducts = [
     id: 101,
     name: 'Classic Celebration Cake',
     price: '\u20B91,500',
-    category: 'Custom Cakes',
+    category: 'Cakes',
     images: [
       'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=85',
     ],
@@ -185,7 +185,7 @@ export const customCakeProducts = [
     id: 102,
     name: 'Designer Cake',
     price: '\u20B92,500',
-    category: 'Custom Cakes',
+    category: 'Cakes',
     images: [
       'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=600&q=85',
     ],
@@ -199,7 +199,7 @@ export const customCakeProducts = [
     id: 103,
     name: 'Fully Custom Cake',
     price: 'Custom Quote',
-    category: 'Custom Cakes',
+    category: 'Cakes',
     images: [
       'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=85',
     ],

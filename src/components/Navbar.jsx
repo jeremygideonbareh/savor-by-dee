@@ -25,7 +25,6 @@ const navLinks = [
     ],
   },
   { label: 'Corporate Gifting', href: '#order' },
-  { label: 'Custom Cakes', href: '#products' },
   { label: 'Locations', href: '#locations' },
   { label: 'Events', href: '#order' },
 ]

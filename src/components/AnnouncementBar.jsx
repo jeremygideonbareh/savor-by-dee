@@ -19,7 +19,7 @@ export default function AnnouncementBar() {
       animate={{ height: 'auto', opacity: 1 }}
       exit={{ height: 0, opacity: 0 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="bg-choco text-white text-center text-xs sm:text-sm py-2.5 px-4 relative"
+      className="bg-rose text-white text-center text-xs sm:text-sm py-2.5 px-4 relative"
     >
       <a href="#products" className="hover:text-gold transition-colors">
         Free delivery in Shillong on orders above <span className="font-semibold">\u20B9500</span>

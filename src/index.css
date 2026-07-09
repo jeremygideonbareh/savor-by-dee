@@ -1,14 +1,16 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-cream: oklch(0.97 0.008 70);
+  --color-cream: oklch(0.96 0.02 50);
+  --color-blush: oklch(0.94 0.03 50);
   --color-surface: oklch(1 0 0);
-  --color-choco: oklch(0.18 0.025 65);
-  --color-muted: oklch(0.35 0.03 65);
-  --color-rose: oklch(0.68 0.12 45);
-  --color-gold: oklch(0.75 0.10 75);
-  --color-border: oklch(0.85 0.02 70);
-  --color-accent: oklch(0.68 0.12 45);
+  --color-choco: oklch(0.25 0.03 40);
+  --color-muted: oklch(0.50 0.04 40);
+  --color-rose: oklch(0.78 0.10 30);
+  --color-gold: oklch(0.82 0.08 85);
+  --color-border: oklch(0.88 0.04 50);
+  --color-accent: oklch(0.78 0.10 30);
+  --color-mint: oklch(0.90 0.04 160);
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
