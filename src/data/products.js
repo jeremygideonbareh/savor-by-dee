@@ -137,33 +137,6 @@ export const products = [
     type: 'Add to cart',
     rating: 4.7,
   },
-]
-
-export const bestSellers = [
-  { name: 'Classic Chocolate Chip Cookie', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&q=85', count: '2.5k+' },
-  { name: 'Gooey Brownie', image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=85', count: '1.8k+' },
-  { name: 'Tiramisu Cake Jar', image: 'https://images.unsplash.com/photo-1727243992949-07231268cd37?w=400&q=85', count: '1.2k+' },
-]
-
-export const trendingProducts = [
-  {
-    id: 1,
-    name: 'Blueberry Cheesecake',
-    price: '\u20B9350',
-    description: 'Our most-loved dessert is flying off the shelves. Creamy, dreamy, and absolutely irresistible.',
-    details: ['New York-style baked cheesecake', 'Hand-picked blueberry compote', 'Buttery graham crust', 'Serves 4-6'],
-    allergens: 'Contains gluten, dairy, eggs',
-    image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&q=85',
-  },
-  {
-    id: 2,
-    name: 'Cinnamon Roll',
-    price: '\u20B9220',
-    description: 'Warm, gooey, and topped with cream cheese glaze \u2014 our cinnamon rolls are the talk of Shillong.',
-    details: ['Hand-laminated dough', 'Spiced brown sugar filling', 'Cream cheese drizzle', 'Baked fresh daily'],
-    allergens: 'Contains gluten, dairy, eggs',
-    image: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=85',
-  },
   {
     id: 101,
     name: 'Classic Celebration Cake',
@@ -205,6 +178,33 @@ export const trendingProducts = [
     tag: 'Upload Photo',
     type: 'Customize',
     tier: 'custom',
+  },
+]
+
+export const bestSellers = [
+  { name: 'Classic Chocolate Chip Cookie', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&q=85', count: '2.5k+' },
+  { name: 'Gooey Brownie', image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=85', count: '1.8k+' },
+  { name: 'Tiramisu Cake Jar', image: 'https://images.unsplash.com/photo-1727243992949-07231268cd37?w=400&q=85', count: '1.2k+' },
+]
+
+export const trendingProducts = [
+  {
+    id: 1,
+    name: 'Blueberry Cheesecake',
+    price: '\u20B9350',
+    description: 'Our most-loved dessert is flying off the shelves. Creamy, dreamy, and absolutely irresistible.',
+    details: ['New York-style baked cheesecake', 'Hand-picked blueberry compote', 'Buttery graham crust', 'Serves 4-6'],
+    allergens: 'Contains gluten, dairy, eggs',
+    image: 'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&q=85',
+  },
+  {
+    id: 2,
+    name: 'Cinnamon Roll',
+    price: '\u20B9220',
+    description: 'Warm, gooey, and topped with cream cheese glaze \u2014 our cinnamon rolls are the talk of Shillong.',
+    details: ['Hand-laminated dough', 'Spiced brown sugar filling', 'Cream cheese drizzle', 'Baked fresh daily'],
+    allergens: 'Contains gluten, dairy, eggs',
+    image: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=85',
   },
 ]
 
