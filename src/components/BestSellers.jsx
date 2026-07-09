@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { bestSellers } from '@/data/products'
+import ImageWithLoading from '@/components/ui/image-with-loading'
 
 export default function BestSellers() {
   return (
@@ -16,17 +17,16 @@ export default function BestSellers() {
             <motion.a
               key={item.name}
               href="#products"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 15, delay: i * 0.1 }}
               className="group relative aspect-[4/3] rounded-2xl overflow-hidden block"
             >
-              <img
+              <ImageWithLoading
                 src={item.image}
                 alt={item.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform"
-                loading="lazy"
+                className="w-full h-full group-hover:scale-110 transition-transform duration-700 will-change-transform"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">

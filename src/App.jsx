@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import AnnouncementBar from './components/AnnouncementBar'
 import Navbar from './components/Navbar'
-import HeroSection from './components/ui/modern-animated-hero-section'
+import Hero from './components/Hero'
 import ProductGrid from './components/ProductGrid'
 import Story from './components/Story'
 import BestSellers from './components/BestSellers'
@@ -32,7 +32,7 @@ export default function App() {
       <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
       <AnnouncementBar />
       <Navbar onCartClick={() => setCartOpen(true)} onLoginClick={() => setLoginOpen(true)} />
-      <HeroSection onOrderClick={() => setOrderOpen(true)} />
+      <Hero onOrderClick={() => setOrderOpen(true)} />
       <ProductGrid />
       <Story />
       <BestSellers />

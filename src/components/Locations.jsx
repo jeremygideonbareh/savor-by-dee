@@ -16,10 +16,10 @@ export default function Locations() {
           {stores.map((store, i) => (
             <motion.div
               key={store.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 15, delay: i * 0.1 }}
               className="bg-white rounded-2xl p-6 border border-border active:shadow-md"
             >
               <div className="flex items-start justify-between mb-4">

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { trendingProducts } from '@/data/products'
+import ImageWithLoading from '@/components/ui/image-with-loading'
 
 export default function Trending() {
   return (
@@ -9,10 +10,10 @@ export default function Trending() {
         {trendingProducts.map((product, i) => (
           <motion.div
             key={product.id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ type: 'spring', stiffness: 80, damping: 15 }}
             className={`grid md:grid-cols-2 gap-8 sm:gap-10 items-center ${i % 2 === 1 ? 'md:grid-flow-dense' : ''}`}
           >
             <div className={i % 2 === 1 ? 'md:col-start-2' : ''}>
@@ -34,11 +35,10 @@ export default function Trending() {
             </div>
             <div className={`aspect-square rounded-2xl overflow-hidden bg-cream relative ${i % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
-              <img
+              <ImageWithLoading
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover"
-                loading="lazy"
+                className="w-full h-full"
               />
             </div>
           </motion.div>

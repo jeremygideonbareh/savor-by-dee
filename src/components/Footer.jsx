@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Heart, Camera, MessageCircle, Video, Mail } from 'lucide-react'
 
 const links = {
@@ -13,12 +14,30 @@ const socialLinks = [
   { icon: Mail, href: '#', label: 'Email' },
 ]
 
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08 },
+  },
+}
+
+const itemAnim = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } },
+}
+
 export default function Footer() {
   return (
     <footer className="bg-choco text-cream pt-12 sm:pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          <div className="sm:col-span-2 lg:col-span-2">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12"
+        >
+          <motion.div variants={itemAnim} className="sm:col-span-2 lg:col-span-2">
             <h3 className="font-display text-2xl mb-3">SAVOR <em className="text-rose not-italic">by Dee</em></h3>
             <p className="text-cream/60 text-sm leading-relaxed max-w-xs mb-6">
               Crafting memorable moments, one bite at a time. Shillong's premier bakery since 2022.
@@ -35,9 +54,9 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
           {Object.entries(links).map(([title, items]) => (
-            <div key={title}>
+            <motion.div key={title} variants={itemAnim}>
               <h4 className="text-xs font-semibold uppercase tracking-wider mb-3 text-cream/80">
                 {title}
               </h4>
@@ -50,15 +69,21 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
-        <div className="border-t border-cream/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="border-t border-cream/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+        >
           <p className="text-xs text-cream/40">&copy; 2024 SAVOR by Dee. All rights reserved.</p>
           <p className="text-xs text-cream/30 flex items-center gap-1">
             Made with <Heart size={10} className="text-rose" /> in Shillong
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   )

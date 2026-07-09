@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContext'
+import ImageWithLoading from '@/components/ui/image-with-loading'
 
 export default function ProductCard({ product, index }) {
   const [hovered, setHovered] = useState(false)
@@ -12,10 +13,10 @@ export default function ProductCard({ product, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 14, delay: index * 0.05 }}
       className="group relative bg-white rounded-xl overflow-hidden border border-border hover:shadow-lg transition-shadow duration-300 active:shadow-md"
     >
       <a
@@ -29,17 +30,15 @@ export default function ProductCard({ product, index }) {
         }}
       >
         <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 transition-opacity duration-500 ${overlayVisible ? 'opacity-100' : 'opacity-0'}`} />
-        <img
+        <ImageWithLoading
           src={product.images[0]}
           alt={product.name}
-          className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 will-change-transform ${hovered ? 'opacity-0' : 'opacity-100'}`}
-          loading="lazy"
+          className={`w-full h-full transition-all duration-700 group-hover:scale-105 will-change-transform ${hovered ? 'opacity-0' : 'opacity-100'}`}
         />
-        <img
+        <ImageWithLoading
           src={product.images[1] || product.images[0]}
           alt={product.name}
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105 will-change-transform ${hovered ? 'opacity-100' : 'opacity-0'}`}
-          loading="lazy"
+          className={`absolute inset-0 w-full h-full transition-all duration-700 group-hover:scale-105 will-change-transform ${hovered ? 'opacity-100' : 'opacity-0'}`}
         />
         {product.tag && (
           <span className="absolute top-3 left-3 bg-rose text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider z-20 shadow-sm">
@@ -55,7 +54,7 @@ export default function ProductCard({ product, index }) {
         <motion.div
           initial={false}
           animate={{ opacity: overlayVisible ? 1 : 0, y: overlayVisible ? 0 : 10 }}
-          transition={{ duration: 0.3 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
           className="absolute inset-0 flex flex-col justify-end p-4 z-20"
         >
           <p className="text-white/90 text-xs leading-relaxed mb-2 line-clamp-2">
