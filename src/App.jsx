@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import AnnouncementBar from './components/AnnouncementBar'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import HeroSection from './components/ui/modern-animated-hero-section'
 import ProductGrid from './components/ProductGrid'
 import Story from './components/Story'
 import BestSellers from './components/BestSellers'
@@ -12,21 +13,26 @@ import Footer from './components/Footer'
 import OrderModal from './components/OrderModal'
 import CartDrawer from './components/CartDrawer'
 import LoginModal from './components/LoginModal'
+import LoadingScreen from './components/ui/loading-screen'
 import { CartProvider } from './context/CartContext'
 
 export default function App() {
   const [orderOpen, setOrderOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
   const [loginOpen, setLoginOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   return (
     <CartProvider>
+      <AnimatePresence>
+        {loading && <LoadingScreen onFinish={() => setLoading(false)} />}
+      </AnimatePresence>
       <OrderModal open={orderOpen} onOpenChange={setOrderOpen} />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
       <AnnouncementBar />
       <Navbar onCartClick={() => setCartOpen(true)} onLoginClick={() => setLoginOpen(true)} />
-      <Hero onOrderClick={() => setOrderOpen(true)} />
+      <HeroSection onOrderClick={() => setOrderOpen(true)} />
       <ProductGrid />
       <Story />
       <BestSellers />
