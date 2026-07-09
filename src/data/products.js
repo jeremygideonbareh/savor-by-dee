@@ -1,5 +1,5 @@
 export const categories = [
-  'All', 'Cookies', 'Cakes', 'Cupcakes', 'Brownies', 'Bakes',
+  'All', 'Cookies', 'Cakes', 'Cupcakes', 'Brownies', 'Bakes', 'Custom Cakes',
 ]
 
 export const products = [
@@ -163,6 +163,51 @@ export const trendingProducts = [
     details: ['Hand-laminated dough', 'Spiced brown sugar filling', 'Cream cheese drizzle', 'Baked fresh daily'],
     allergens: 'Contains gluten, dairy, eggs',
     image: 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=85',
+  },
+]
+
+export const customCakeProducts = [
+  {
+    id: 101,
+    name: 'Classic Celebration Cake',
+    price: '\u20B91,500',
+    category: 'Custom Cakes',
+    images: [
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=85',
+    ],
+    description: 'Choose from our signature flavors and classic designs — simple, elegant, and delicious.',
+    longDescription: 'The perfect cake for birthdays, anniversaries, or any celebration. Customise every detail from size to frosting.',
+    tag: 'Customise',
+    type: 'Customize',
+    tier: 'classic',
+  },
+  {
+    id: 102,
+    name: 'Designer Cake',
+    price: '\u20B92,500',
+    category: 'Custom Cakes',
+    images: [
+      'https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=600&q=85',
+    ],
+    description: 'Themed cakes with custom shapes, colours, and intricate decorations.',
+    longDescription: 'Make a statement with a fully designed cake. Choose your shape, colour palette, and theme — our bakers will bring your vision to life.',
+    tag: 'Design',
+    type: 'Customize',
+    tier: 'designer',
+  },
+  {
+    id: 103,
+    name: 'Fully Custom Cake',
+    price: 'Custom Quote',
+    category: 'Custom Cakes',
+    images: [
+      'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=85',
+    ],
+    description: 'Upload a photo and describe exactly what you want — we\'ll bake your dream cake.',
+    longDescription: 'Have a specific cake in mind? Send us a reference photo and tell us every detail. Our bakers will recreate it with precision and care.',
+    tag: 'Upload Photo',
+    type: 'Customize',
+    tier: 'custom',
   },
 ]
 

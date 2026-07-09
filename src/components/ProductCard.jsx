@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContext'
 import ImageWithLoading from '@/components/ui/image-with-loading'
 
-export default function ProductCard({ product, index }) {
+export default function ProductCard({ product, index, onCustomize }) {
   const [hovered, setHovered] = useState(false)
   const [touched, setTouched] = useState(false)
   const { dispatch } = useCart()
@@ -81,10 +81,14 @@ export default function ProductCard({ product, index }) {
               onClick={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
-                dispatch({ type: 'ADD_ITEM', product })
+                if (product.type === 'Customize') {
+                  onCustomize?.(product)
+                } else {
+                  dispatch({ type: 'ADD_ITEM', product })
+                }
               }}
             >
-              {product.type === 'Add to cart' ? 'Add to cart' : 'Choose options'}
+              {product.type === 'Customize' ? 'Customise' : product.type === 'Add to cart' ? 'Add to cart' : 'Choose options'}
             </Button>
           </div>
         </motion.div>

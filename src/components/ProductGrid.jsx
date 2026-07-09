@@ -4,11 +4,13 @@ import { SlidersHorizontal, X } from 'lucide-react'
 import CategoryTabs from './CategoryTabs'
 import ProductCard from './ProductCard'
 import FilterSidebar from './FilterSidebar'
+import CustomCakeModal from './CustomCakeModal'
 import { products, categories } from '@/data/products'
 
 export default function ProductGrid() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [showFilters, setShowFilters] = useState(false)
+  const [customizeProduct, setCustomizeProduct] = useState(null)
 
   const filtered = activeCategory === 'All'
     ? products
@@ -46,7 +48,7 @@ export default function ProductGrid() {
           <div className="flex-1">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
               {filtered.map((product, i) => (
-                <ProductCard key={product.id} product={product} index={i} />
+                <ProductCard key={product.id} product={product} index={i} onCustomize={setCustomizeProduct} />
               ))}
             </div>
           </div>
@@ -85,6 +87,12 @@ export default function ProductGrid() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <CustomCakeModal
+        open={!!customizeProduct}
+        onOpenChange={(open) => { if (!open) setCustomizeProduct(null) }}
+        product={customizeProduct}
+      />
     </section>
   )
 }
